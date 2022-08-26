@@ -1,12 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface InitialState {}
+interface InitialState {
+	isModalVisible: boolean;
+}
 
-const initialState: InitialState = {};
+const initialState: InitialState = {
+	isModalVisible: false,
+};
+
 const uiSlice = createSlice({
 	name: "ui",
 	initialState,
-	reducers: {},
+	reducers: {
+		toggleModalVisibility(state: InitialState) {
+			state.isModalVisible = !state.isModalVisible;
+			// console.log(state.isModalVisible)
+		},
+	},
 });
 
 const { reducer, actions } = uiSlice;

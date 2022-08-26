@@ -1,28 +1,25 @@
 import { FC, ReactNode } from "react";
-import styled from "styled-components";
+import { ButtonWrapper } from "./Button.styled";
 
 interface Props {
 	readonly children?: ReactNode;
 	readonly icon?: ReactNode;
 	readonly text?: ReactNode;
-	clickHandler?: () => void
+	clickHandler?: () => void;
+	background: boolean;
+	size?: "lg" | "sm";
+	type?: "button" | "submit" | "reset" | undefined;
 }
-
-interface IButtonWrapper {}
-
-const ButtonWrapper = styled.button<IButtonWrapper>`
-	background-color: transparent;
-	border: none;
-	color: var(--clr-white);
-
-	cursor: pointer;
-`;
 
 const Button: FC<Props> = props => {
 	return (
-		<ButtonWrapper onClick={props.clickHandler}>
+		<ButtonWrapper
+			onClick={props.clickHandler}
+			background={props.background}
+			size={props.size}
+			type={props.type}>
 			{props.icon}
-			{props.children}
+			{props.children && <span>{props.children}</span>}
 			{props.text}
 		</ButtonWrapper>
 	);

@@ -1,27 +1,46 @@
+import Note from "@/utils/mongoose/schemas/notes";
+import { INote } from "@/utils/helpers/types";
+import { Types } from "mongoose";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { INote } from "../../../types";
-import notesDB from "../../../notes-db.json";
 
 interface Data {
+	note?: INote;
 	notes?: INote[];
-	message?: string;
+
+	message: string;
+	error: string;
 }
 
-const notes: INote[] = notesDB;
+// const notes: INote[] = notesDB;
 
-export default function handler(
+export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse<Data>,
 ) {
-	const { method } = req;
+	const { method, body } = req;
 
 	switch (method) {
 		case "GET": {
-			res.status(200).json({ notes });
+			const notes = await Note.find({});
+			res.status(200).json({
+				notes,
+				message: `Found ${notes.length} item(s)`,
+				error: "",
+			});
 			break;
 		}
 		case "POST": {
-			res.status(201).json({ message: "Created" });
+			const note = await new Note({
+				title: body.title,
+				content: body.content,
+				_id: new Types.ObjectId(),
+			}).save();
+
+			res.status(201).json({
+				note,
+				message: `Note ${note.title} created`,
+				error: "",
+			});
 			break;
 		}
 		case "PUT": {

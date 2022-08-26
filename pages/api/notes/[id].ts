@@ -1,6 +1,6 @@
+import Note from "@/utils/mongoose/schemas/notes";
 import type { NextApiRequest, NextApiResponse } from "next";
-import notesDB from "../../../notes-db.json";
-import { INote } from "../../../types";
+import { INote } from "types";
 
 interface Data {
 	note?: INote;
@@ -9,9 +9,8 @@ interface Data {
 	error?: string;
 }
 
-const notes: INote[] = notesDB;
 
-export default function handler(
+export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse<Data>,
 ) {
@@ -20,17 +19,18 @@ export default function handler(
 
 	switch (method) {
 		case "GET": {
-			const noteIndex = notes.findIndex(note => note.id === parseInt(id));
+			const note = await Note.findById(id);
 
-			if (noteIndex === -1)
-				return res.status(404).json({ error: "Note not found" });
+			if(!note) return res.status(404).json({error: "Note not found"});
 
-			console.log(id);
-			return res.status(200).json({
-				note: notes[noteIndex],
-				message: `Note found`,
-			});
+			return res.status(200).json({ note });
+		}
+		case "DELETE": {
+			await Note.deleteOne({ _id: id });
+			return res.status(204).json({message: "Deleted"});
 		}
 	}
 }
+
+
 

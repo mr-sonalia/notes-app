@@ -1,14 +1,22 @@
 /** @format */
 
+import "@/scss/globals.scss";
+import store from "@/store/index";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
-import store from "../store";
-import "../styles/globals.scss";
+import styled from "styled-components";
+
+const BaseContainer = styled.div`
+	height: inherit;
+	padding: 2rem;
+`;
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<Provider store={store}>
-			<Component {...pageProps} />
+			<BaseContainer>
+				<Component {...pageProps} />
+			</BaseContainer>
 		</Provider>
 	);
 }
