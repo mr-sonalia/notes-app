@@ -9,11 +9,13 @@ interface Props {
 	background: boolean;
 	size?: "lg" | "sm";
 	type?: "button" | "submit" | "reset" | undefined;
+	dataCy?: string
 }
 
 const Button: FC<Props> = props => {
 	return (
 		<ButtonWrapper
+			data-cy={props.dataCy}
 			onClick={props.clickHandler}
 			background={props.background}
 			size={props.size}

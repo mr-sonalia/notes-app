@@ -9,7 +9,6 @@ interface Props {
 	readonly children?: ReactNode;
 }
 
-
 const NewNote: FC<Props> = props => {
 	// const [isModalVisible, setModalVisibility] = useState<boolean>(false);
 	const dispatch = useAppDispatch();
@@ -21,6 +20,7 @@ const NewNote: FC<Props> = props => {
 	return (
 		<NewNoteWrapper>
 			<Button
+				dataCy="new-note"
 				size={"lg"}
 				text={"New Note"}
 				background={true}
@@ -32,4 +32,3 @@ const NewNote: FC<Props> = props => {
 };
 
 export default NewNote;
-

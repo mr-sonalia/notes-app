@@ -7,7 +7,8 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"test": "jest"
+		"test": "jest",
+		"cypress:open": "cypress open"
 	},
 	"dependencies": {
 		"@reduxjs/toolkit": "^1.8.5",
@@ -29,6 +30,7 @@
 		"@types/react": "18.0.17",
 		"@types/react-dom": "18.0.6",
 		"@types/styled-components": "^5.1.26",
+		"cypress": "^10.6.0",
 		"eslint": "8.22.0",
 		"eslint-config-next": "12.2.5",
 		"jest": "^28.1.3",

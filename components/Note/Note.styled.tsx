@@ -62,7 +62,7 @@ export const NoteTextArea = styled.textarea`
 
 	padding: 0rem 1rem;
 
-	font-size: 1.6rem;
+	font-size: 1.4rem;
 	line-height: 1.5;
 
 	resize: none;

@@ -1,7 +1,8 @@
 /** @format */
 
-import "@/scss/globals.scss";
 import store from "@/store/index";
+import "@/styles/globals.scss";
+// import { GlobalStyle } from "@/styles/globals";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import styled from "styled-components";
@@ -14,6 +15,7 @@ const BaseContainer = styled.div`
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<Provider store={store}>
+			{/* <GlobalStyle /> */}
 			<BaseContainer>
 				<Component {...pageProps} />
 			</BaseContainer>
@@ -22,4 +24,3 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default MyApp;
-

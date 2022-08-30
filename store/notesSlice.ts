@@ -86,7 +86,7 @@ export const deleteNoteAsync =
 				`/api/notes/${id}`,
 			);
 
-			if (response.data.error === "") dispatch(action.deleteNote({ id }));
+			if (response.status === 204) dispatch(action.deleteNote({ id }));
 			else throw response.data.error;
 		} catch (error) {
 			console.error(error);

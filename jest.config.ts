@@ -12,8 +12,8 @@ export default createJestConfig({
 	},
 
 	// Testing library
-	setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
-	
+	setupFilesAfterEnv: ["@testing-library/jest-dom", "@testing-library/jest-dom/extend-expect"],
+
 	// Better logs if test case(s) fail
 	verbose: true,
 });

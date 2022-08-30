@@ -64,15 +64,16 @@ const Modal: FC<Props> = props => {
 							<FormInputWrapper>
 								<Label htmlFor="title">Title</Label>
 								<TextInput
+									data-cy="title-input"
 									onFocus={event => event.stopPropagation()}
 									ref={titleInputRef}
 								/>
 							</FormInputWrapper>
 							<FormInputWrapper>
 								<Label htmlFor="content">Content</Label>
-								<TextAreaInput ref={contentInputRef} />
+								<TextAreaInput data-cy="content-input" ref={contentInputRef} />
 							</FormInputWrapper>
-							<Button text={"Submit"} background={true} size="lg" type="submit" />
+							<Button dataCy="submit" text={"Submit"} background={true} size="lg" type="submit" />
 						</Form>
 					</ModalWrapper>
 				</ModalContainer>,

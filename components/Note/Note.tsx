@@ -3,7 +3,12 @@ import { BiSave, BiTrash } from "react-icons/bi";
 import Button from "../Button";
 import {
 	NoteActions,
-	NoteBody, NoteCharacterLimit, NoteHead, NoteTextArea, NoteTitle, NoteWrapper
+	NoteBody,
+	NoteCharacterLimit,
+	NoteHead,
+	NoteTextArea,
+	NoteTitle,
+	NoteWrapper
 } from "./Note.styled";
 
 interface Props {
@@ -32,10 +37,11 @@ const Note: FC<Props> = props => {
 	return (
 		<NoteWrapper>
 			<NoteHead>
-				<NoteTitle value={props.title} onChange={() => {}} />
+				<NoteTitle value={props.title} onChange={() => {}} data-cy="title" />
 				<NoteActions>
 					<Button icon={<BiSave size={"2rem"} />} background={true} />
 					<Button
+						dataCy={`delete-${props.title}`}
 						icon={<BiTrash size={"2rem"} />}
 						background={true}
 						clickHandler={() => props.handleCardDeletion(props.id)}
@@ -47,6 +53,7 @@ const Note: FC<Props> = props => {
 					ref={noteContentRef}
 					maxLength={CHARACTER_LIMIT}
 					onChange={handleCharacterCount}
+					data-cy="content"
 				/>
 				<NoteCharacterLimit>
 					{characterCount}/{CHARACTER_LIMIT}
