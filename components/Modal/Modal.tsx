@@ -1,3 +1,4 @@
+import { Button } from "@/components";
 import { RootState, useAppDispatch } from "@/store/dispatcher";
 import { createNoteAsync } from "@/store/notesSlice";
 import ui from "@/store/uiSlice";
@@ -5,7 +6,6 @@ import React, { FC, ReactNode, useRef } from "react";
 import { createPortal } from "react-dom";
 import { BiX } from "react-icons/bi";
 import { useSelector } from "react-redux";
-import Button from "../Button";
 import {
 	Form,
 	FormInputWrapper,

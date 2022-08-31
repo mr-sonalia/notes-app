@@ -37,3 +37,5 @@ describe("Open modal to create note", () => {
 		cy.get(`[data-cy="delete-${noteTitle}"]`).click();
 	});
 });
+
+export {}

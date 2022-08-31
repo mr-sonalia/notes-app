@@ -1,5 +1,5 @@
-import Note from "@/utils/mongoose/schemas/notes";
 import { INote } from "@/utils/helpers/types";
+import Note from "@/utils/mongoose/schemas/notes";
 import { Types } from "mongoose";
 import type { NextApiRequest, NextApiResponse } from "next";
 

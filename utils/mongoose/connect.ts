@@ -1,11 +1,7 @@
-import { connect } from "mongoose";
+import mongoose from "mongoose";
 
-const connectToDb = async () => {
-	try {
-		connect(process.env.MONGODB_URL!);
-	} catch (error) {
-		console.error(error);
-	}
+const connectToDb = async (options: mongoose.ConnectOptions): Promise<typeof mongoose> => {
+	return mongoose.connect(process.env.MONGODB_URL!, options);
 };
 
 export default connectToDb;

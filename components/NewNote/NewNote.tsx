@@ -2,7 +2,7 @@ import { useAppDispatch } from "@/store/dispatcher";
 import ui from "@/store/uiSlice";
 import { FC, ReactNode } from "react";
 import { BiPlus } from "react-icons/bi";
-import Button from "../Button";
+import {Button} from "@/components";
 import { NewNoteWrapper } from "./NewNote.styled";
 
 interface Props {

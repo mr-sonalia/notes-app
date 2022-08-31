@@ -1,5 +1,5 @@
 import { model, models, Schema } from "mongoose";
-import { INote } from "../../helpers/types";
+import { INote } from "@/utils/helpers/types";
 
 const NotesSchema = new Schema({
 	title: {

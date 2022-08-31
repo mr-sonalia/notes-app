@@ -1,6 +1,4 @@
-import Head from "@/components/Head";
-import Main from "@/components/Main";
-import NewNote from "@/components/NewNote";
+import { Head, Main, NewNote } from "@/components";
 import { useAppDispatch } from "@/store/dispatcher";
 import notes from "@/store/notesSlice";
 import { IAxiosGetAllNotesResponse, INote } from "@/utils/helpers/types";
@@ -38,11 +36,11 @@ export async function getServerSideProps() {
 		error: string = "";
 	try {
 		console.log("Attempting db connection");
-		await connectToDb();
+		await connectToDb({dbName: "notesDB"});
 		console.log("Db connected");
 
 		const response = await axios.get<IAxiosGetAllNotesResponse>(
-			"http://localhost:3000/api/notes",
+			"http://localhost:3000/api/notes"
 		);
 
 		message = response.data.message;
@@ -61,4 +59,3 @@ export async function getServerSideProps() {
 		},
 	};
 }
-

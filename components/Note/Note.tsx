@@ -1,6 +1,6 @@
 import { FC, ReactNode, useEffect, useRef, useState } from "react";
 import { BiSave, BiTrash } from "react-icons/bi";
-import Button from "../Button";
+import { Button } from "@/components";
 import {
 	NoteActions,
 	NoteBody,
@@ -8,7 +8,7 @@ import {
 	NoteHead,
 	NoteTextArea,
 	NoteTitle,
-	NoteWrapper
+	NoteWrapper,
 } from "./Note.styled";
 
 interface Props {

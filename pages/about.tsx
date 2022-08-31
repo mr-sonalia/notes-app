@@ -1,4 +1,4 @@
-import Head from "@/components/Head";
+import { Head } from "@/components";
 import { IAboutPage, IAxiosAboutPageResponse } from "@/utils/helpers/types";
 import axios from "axios";
 import { NextPage } from "next";
@@ -18,9 +18,7 @@ const About: NextPage<Props> = props => {
 };
 
 export async function getStaticProps() {
-	const response = await axios.get<IAxiosAboutPageResponse>(
-		"http://localhost:3000/api/about",
-	);
+	const response = await axios.get<IAxiosAboutPageResponse>("http://localhost:3000/api/about");
 
 	let about: IAboutPage = response.data;
 
@@ -33,4 +31,3 @@ export async function getStaticProps() {
 }
 
 export default About;
-

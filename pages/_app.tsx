@@ -1,8 +1,5 @@
-/** @format */
-
 import store from "@/store/index";
 import "@/styles/globals.scss";
-// import { GlobalStyle } from "@/styles/globals";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import styled from "styled-components";
@@ -22,5 +19,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 		</Provider>
 	);
 }
+
 
 export default MyApp;

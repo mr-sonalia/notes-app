@@ -1,6 +1,6 @@
 import Note from "@/utils/mongoose/schemas/notes";
+import { INote } from "@/utils/helpers/types";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { INote } from "types";
 
 interface Data {
 	note?: INote;
