@@ -97,7 +97,7 @@ export const updateNoteAsync =
 	(payload: INote) => async (dispatch: AppDispatch) => {
 		try {
 			const response = await axios.put<IAxiosUpdateNoteResponse>(
-				"/api/notes/",
+				`/api/notes/${payload.id}`,
 				{ ...payload },
 			);
 

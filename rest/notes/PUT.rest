@@ -1,0 +1,9 @@
+# Create a new note
+
+PUT http://localhost:3000/api/notes/630f5ba03d47a757cc140649 HTTP/1.1
+Content-Type: application/json
+
+{
+	"title": "Updated title",
+	"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dolor turpis, tempor vel eleifend et, tincidunt vitae arcu."
+}

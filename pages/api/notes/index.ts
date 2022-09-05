@@ -15,7 +15,7 @@ interface Data {
 
 export default async function handler(
 	req: NextApiRequest,
-	res: NextApiResponse<Data>,
+	res: NextApiResponse<Data>
 ) {
 	const { method, body } = req;
 
@@ -44,6 +44,8 @@ export default async function handler(
 			break;
 		}
 		case "PUT": {
+			// const updatedNote = await Note.findByIdAndUpdate()
+			// res.status(200).json({ message: "Updated", error: "" });
 			break;
 		}
 		case "DELETE": {
@@ -54,4 +56,3 @@ export default async function handler(
 		}
 	}
 }
-

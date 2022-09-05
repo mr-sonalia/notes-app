@@ -11,28 +11,23 @@ export interface IAboutPage {
 	email: string;
 }
 
-export interface IAxiosGetAllNotesResponse {
+export interface Response {
 	message: string;
-	notes?: INote[];
 	error: string;
 }
 
-export interface IAxiosCreateNoteResponse {
-	message: string;
-	error: string;
+export interface IAxiosGetAllNotesResponse extends Response {
+	notes?: INote[];
+}
+
+export interface IAxiosCreateNoteResponse extends Response {
 	note: INote;
 }
 
-export interface IAxiosDeleteNoteResponse {
-	message: string;
-	error: string;
-}
+export interface IAxiosDeleteNoteResponse extends Response {}
 
-export interface IAxiosUpdateNoteResponse {
-	message: string;
-	error: string;
+export interface IAxiosUpdateNoteResponse extends Response {
 	note: INote;
 }
 
 export interface IAxiosAboutPageResponse extends IAboutPage {}
-
